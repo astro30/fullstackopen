@@ -17,7 +17,16 @@ const App = () => {
 }
 
 const Header = (props) => <h1>{props.course}</h1>;
-const Content = (props) => props.couples.map(couple => <p>{couple[0]} {couple[1]}</p>)
+const Content = (props) => {
+    return (
+        <div>
+            <Part part={props.couples[0][0]} exercise={props.couples[0][1]}/>
+            <Part part={props.couples[1][0]} exercise={props.couples[1][1]}/>
+            <Part part={props.couples[2][0]} exercise={props.couples[2][1]}/>
+        </div>
+    )
+}
+const Part = (props) => <p>{props.part} {props.exercise}</p>
 const Total = (props) => <p>Number of exercises {props.exercises.reduce((curr, prev) => curr + prev, 0)} </p>
 
 export default App
